@@ -5,3 +5,5 @@ up:
 
 down:
 	vagrant destroy -f
+
+re: down up
