@@ -8,8 +8,5 @@ down:
 
 re: down up
 
-sshS:
+ssh:
 	vagrant ssh soumansoS
-
-sshSW:
-	vagrant ssh soumansoSW
