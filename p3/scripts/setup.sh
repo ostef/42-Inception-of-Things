@@ -10,8 +10,10 @@ sudo kubectl get namespace
 
 # Install ArgoCD
 sudo kubectl apply -n argocd -f confs/argocd.yaml
-sudo kubectl apply -f confs/ingress.yaml
+sudo kubectl apply -n argocd -f confs/ingress.yaml
+sudo kubectl apply -n argocd -f confs/app.yaml
 
 sudo kubectl get pods -n argocd
 
+sleep 10
 sudo kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d > argoCD_password.txt
