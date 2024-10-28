@@ -13,3 +13,6 @@ clean:
 	./scripts/clean.sh
 
 re: clean setup
+
+password:
+	./scripts/get_password.sh
