@@ -6,14 +6,16 @@ sudo kubectl cluster-info
 
 sudo kubectl create namespace dev
 sudo kubectl create namespace argocd
-sudo kubectl get namespace
 
 # Install ArgoCD
-sudo kubectl apply -n argocd -f confs/argocd.yaml
-sudo kubectl apply -n argocd -f confs/ingress.yaml
+sudo kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 sudo kubectl apply -n argocd -f confs/app.yaml
 
+sudo kubectl wait pods -n argocd --all --for condition=Ready --timeout=600s
 sudo kubectl get pods -n argocd
 
-sleep 10
-sudo kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d > argoCD_password.txt
+sudo kubectl wait pods -n dev --all --for condition=Ready --timeout=600s
+sudo kubectl get pods -n dev
+
+sudo kubectl port-forward -n argocd service/argocd-server 9090:443 &>/dev/null &
+sudo kubectl port-forward -n dev service/app-service 8888:8888 &>/dev/null &

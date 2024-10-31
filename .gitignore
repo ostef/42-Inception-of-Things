@@ -1,3 +1,4 @@
 .vagrant/
 token
-argoCD_password.txt
+*_password.txt
+*_password.txt
