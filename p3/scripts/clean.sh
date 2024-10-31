@@ -2,4 +2,4 @@
 
 sudo rm ./argocd_password.txt
 
-sudo k3d cluster delete -a
+sudo k3d cluster delete p3
