@@ -16,3 +16,6 @@ re: clean setup
 
 password:
 	./scripts/get_password.sh
+
+argocd:
+	sudo kubectl port-forward -n argocd svc/argocd-server 8080:80
