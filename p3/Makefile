@@ -19,3 +19,6 @@ password:
 
 argocd:
 	sudo kubectl port-forward -n argocd svc/argocd-server 8080:80
+
+app:
+	sudo kubectl port-forward -n dev svc/app-service 8888:8888

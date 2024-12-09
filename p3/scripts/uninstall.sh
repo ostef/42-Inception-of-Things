@@ -29,3 +29,10 @@ then
     sudo rm $(which kubectl)
     sudo rm -rf ~/.kube
 fi
+
+# Uninstall argocd
+
+if [[ -n $(which argocd) ]];
+then
+    sudo rm $(which argocd)
+fi
