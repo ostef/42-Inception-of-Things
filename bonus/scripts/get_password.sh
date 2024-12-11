@@ -5,8 +5,8 @@ sudo kubectl get secret gitlab-gitlab-initial-root-password -n gitlab -o jsonpat
 
 echo -n "ArgoCD: "
 cat argocd_password.txt
-echo \n
+echo
 
 echo -n "GitLab: "
 cat gitlab_password.txt
-echo \n
+echo
