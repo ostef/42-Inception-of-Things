@@ -23,3 +23,5 @@ git push -u origin master
 
 cd ..
 rm -rf app_repo
+
+echo WARNING: Repository is set to private. You have to manually set this repository to public by using the GitLab web interface.

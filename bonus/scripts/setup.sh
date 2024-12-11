@@ -24,6 +24,6 @@ echo Waiting for GitLab to be deployed...
 sleep 5
 sudo kubectl rollout status deployment gitlab-webservice-default -n gitlab
 
-read -p "Setup the repository in GitLab under root/soumanso-IoT, then press enter to continue."
+read -p "Setup the repository in GitLab using scripts/repo_create.sh, then press enter to continue."
 
 scripts/setup_app.sh
