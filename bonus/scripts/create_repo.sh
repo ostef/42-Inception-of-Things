@@ -5,4 +5,4 @@ cd app_repo
 cp ../app_repo_template/* .
 git add .
 git commit -m "First commit"
-git push
+#git push
