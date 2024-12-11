@@ -2,7 +2,7 @@
 
 # Make sure we have an up-to-date password
 scripts/get_password.sh
-REPO=soumanso-oT
+REPO=soumanso-IoT
 PASSWORD=$(cat gitlab_password.txt)
 
 if ! git clone http://localhost:8181/root/$REPO.git app_repo;
