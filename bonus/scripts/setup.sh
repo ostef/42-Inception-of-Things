@@ -24,9 +24,6 @@ echo Waiting for GitLab to be deployed...
 sleep 5
 sudo kubectl rollout status deployment gitlab-webservice-default -n gitlab
 
-echo Port forwarding GitLab service to port 8181
-sudo kubectl port-forward -n gitlab service/gitlab-webservice-default 8181:8181 &>/dev/null &
-
-read -p "Setup the repository in GitLab under root/app, then press enter to continue."
+read -p "Setup the repository in GitLab under root/soumanso-IoT, then press enter to continue."
 
 scripts/setup_app.sh

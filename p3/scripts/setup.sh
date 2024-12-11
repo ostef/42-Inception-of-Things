@@ -12,13 +12,14 @@ echo Waiting for ArgoCD pods to be ready...
 sleep 5
 sudo kubectl wait pods -n argocd --all --for condition=Ready --timeout=600s
 
-echo Creating app
+echo Port forwarding ArgoCD service to port 8080
 sudo kubectl port-forward -n argocd svc/argocd-server 8080:80 &>/dev/null &
 
 scripts/get_password.sh
 ARGOCD_PASSWORD=$(cat argocd_password.txt)
 ARGOCD_REPO=https://github.com/ostef/soumanso-IoT.git
 
+echo Creating app
 sudo argocd login localhost:8080 --username admin --password $ARGOCD_PASSWORD --insecure
 sudo argocd app create playground \
     --repo $ARGOCD_REPO --path . \
@@ -33,4 +34,5 @@ echo Waiting for app pods to be ready...
 sleep 5
 sudo kubectl wait pods -n dev --all --for condition=Ready --timeout=600s
 
+echo Port forwarding App service to port 8888
 sudo kubectl port-forward -n dev svc/app-service 8888:8888 &>/dev/null &
