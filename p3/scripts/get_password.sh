@@ -4,4 +4,4 @@ sudo kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.dat
 
 echo -n "ArgoCD: "
 cat argocd_password.txt
-echo \n
+echo
